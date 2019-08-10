@@ -1,3 +1,3 @@
-Juan Diego González Gómez
-Semestre 2
-201911031
+Nombre: Juan Diego González Gómez
+Semestre: 2
+Código: 201911031
