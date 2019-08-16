@@ -31,5 +31,12 @@ public class MVCView
 		public void printModelo(MVCModelo modelo)
 		{
 			// TODO implementar
+			String[] respuesta = modelo.darElementos();
+			
+			for (String actual : respuesta)
+			{
+				System.out.println(actual);
+			}
+
 		}
 }

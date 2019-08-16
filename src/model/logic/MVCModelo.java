@@ -67,6 +67,17 @@ public class MVCModelo {
 	{
 		return datos.eliminar(dato);
 	}
-
+	
+	public String[] darElementos()
+	{
+		String[] respuesta = new String[datos.darTamano()];
+		
+		for (int i = 0; i < respuesta.length; i++)
+		{
+			respuesta[i] = datos.darElemento(i);
+		}
+		
+		return respuesta;
+	}
 
 }
