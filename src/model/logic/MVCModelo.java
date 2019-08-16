@@ -43,7 +43,7 @@ public class MVCModelo {
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
-	public void agregar(String dato)
+	public void agregar(Integer dato)
 	{	
 		datos.agregar(dato);
 	}
@@ -53,9 +53,9 @@ public class MVCModelo {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public String buscar(String dato)
+	public Integer buscar(Integer dato)
 	{
-		return datos.buscar(dato);
+		return (Integer) datos.buscar(dato);
 	}
 	
 	/**
@@ -63,18 +63,18 @@ public class MVCModelo {
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
-	public String eliminar(String dato)
+	public Integer eliminar(Integer dato)
 	{
-		return datos.eliminar(dato);
+		return (Integer) datos.eliminar(dato);
 	}
 	
-	public String[] darElementos()
+	public Integer[] darElementos()
 	{
-		String[] respuesta = new String[datos.darTamano()];
+		Integer[] respuesta = new Integer[datos.darTamano()];
 		
 		for (int i = 0; i < respuesta.length; i++)
 		{
-			respuesta[i] = datos.darElemento(i);
+			respuesta[i] = (Integer) datos.darElemento(i);
 		}
 		
 		return respuesta;

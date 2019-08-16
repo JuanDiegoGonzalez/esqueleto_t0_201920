@@ -7,7 +7,7 @@ package model.data_structures;
  * @author Fernando De la Rosa
  *
  */
-public class ArregloDinamico implements IArregloDinamico {
+public class ArregloDinamico<T extends Comparable<T>> implements IArregloDinamico<T> {
 	/**
 	 * Capacidad maxima del arreglo
 	 */
@@ -19,7 +19,7 @@ public class ArregloDinamico implements IArregloDinamico {
 	/**
 	 * Arreglo de elementos de tamaNo maximo
 	 */
-	private String elementos[ ];
+	private T elementos[ ];
 
 	/**
 	 * Construir un arreglo con la capacidad maxima inicial.
@@ -27,21 +27,21 @@ public class ArregloDinamico implements IArregloDinamico {
 	 */
 	public ArregloDinamico( int max )
 	{
-		elementos = new String[max];
+		elementos = (T[]) new Object[max];
 		tamanoMax = max;
 		tamanoAct = 0;
 	}
 
-	public void agregar( String dato )
+	public void agregar( T dato )
 	{
 		if ( tamanoAct == tamanoMax )
 		{  // caso de arreglo lleno (aumentar tamaNo)
 			tamanoMax = 2 * tamanoMax;
-			String [ ] copia = elementos;
-			elementos = new String[tamanoMax];
+			Object [ ] copia = elementos;
+			elementos = (T[])new Object[tamanoMax];
 			for ( int i = 0; i < tamanoAct; i++)
 			{
-				elementos[i] = copia[i];
+				elementos[i] = (T)copia[i];
 			} 
 			System.out.println("Arreglo lleno: " + tamanoAct + " - Arreglo duplicado: " + tamanoMax);
 		}	
@@ -57,15 +57,15 @@ public class ArregloDinamico implements IArregloDinamico {
 		return tamanoAct;
 	}
 
-	public String darElemento(int i) {
+	public T darElemento(int i) {
 		// TODO implementar
 		return i<tamanoMax? elementos[i]:null;
 	}
 
-	public String buscar(String dato) {
+	public T buscar(T dato) {
 		// TODO implementar
 		// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-		for(String actual : elementos)
+		for(T actual : elementos)
 		{
 			if(dato.compareTo(actual) == 0)
 			{return actual;}
@@ -73,17 +73,17 @@ public class ArregloDinamico implements IArregloDinamico {
 		return null;
 	}
 
-	public String eliminar(String dato) {
+	public T eliminar(T dato) {
 		// TODO implementar
 		// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
 
-		String buscado = null;
+		T buscado = null;
 
 		for (int i = 0; i < elementos.length; i++)
 		{
 			if(buscado == null)		
 			{
-				String actual = elementos[i];
+				T actual = elementos[i];
 				if(actual.compareTo(dato) == 0)
 				{
 					buscado = actual;
