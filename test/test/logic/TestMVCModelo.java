@@ -7,10 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TestMVCModelo {
-	
+
 	private MVCModelo modelo;
 	private static int CAPACIDAD=100;
-	
+
 	@Before
 	public void setUp1() {
 		modelo= new MVCModelo(CAPACIDAD);
@@ -18,7 +18,7 @@ public class TestMVCModelo {
 
 	public void setUp2() {
 		for(int i =0; i< CAPACIDAD;i++){
-			modelo.agregar(""+i);
+			modelo.agregar(i);
 		}
 	}
 
@@ -36,20 +36,26 @@ public class TestMVCModelo {
 	@Test
 	public void testAgregar() {
 		// TODO Completar la prueba
-		
+		modelo.agregar(1);
+		assertEquals(1, modelo.darTamano());
 	}
 
 	@Test
 	public void testBuscar() {
 		setUp2();
 		// TODO Completar la prueba
+		assertNull(modelo.buscar(100));
+		assertNotNull(modelo.buscar(99));
 	}
 
 	@Test
 	public void testEliminar() {
 		setUp2();
 		// TODO Completar la prueba
-		
+		modelo.eliminar(1);
+		assertEquals(99, modelo.darTamano());
+		System.out.println((Integer)modelo.darElementos()[1]);
+		assertTrue((Integer)modelo.darElementos()[1] == 2);
 	}
 
 }
